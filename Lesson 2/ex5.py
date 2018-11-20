@@ -22,5 +22,3 @@ peer_address = show_bgp[3].split()
 peer_address = peer_address[0]
 
 print("Local AS: " + local_as + "\nPeer Address: " + peer_address)
-
-hi wife!
