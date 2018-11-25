@@ -33,5 +33,22 @@ base_cmd_windows = 'ping -n 2'
 # Ternary operator
 base_cmd = base_cmd_windows if WINDOWS else base_cmd_linux
 '''
+import os
 
+WINDOWS = False
 
+base_cmd_linux = 'ping -c 2 '
+base_cmd_windows = 'ping -n 2 '
+base_cmd = base_cmd_windows if WINDOWS else base_cmd_linux
+
+ip_addr_list = []
+for last_octet in range(1,255):
+	ip_addr_list.extend(["10.10.100." + str(last_octet)])
+
+for i, ip_addr in enumerate(ip_addr_list):
+	print(str(i) + " ----> " + ip_addr)
+
+icmp_targets = ip_addr_list[2:6]
+
+for ip_addr in (icmp_targets):
+	os.system(base_cmd + ip_addr)
