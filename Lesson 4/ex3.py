@@ -11,9 +11,22 @@ Serial Number: FTX0000038X
 '''
 import re
 
-with open ("show_version.txt"_ as f:
-	output = f.readlines()
+with open ("show_version.txt") as f:
+	sh_ver = f.read()
 
+match = re.search(r"^Cisco (.*), Version (.*),", sh_ver, flags=re.M)
+if match:
+	os_version = match.group(2)
 
+match = re.search(r"^Processor board ID (.*)", sh_ver, flags=re.M)
+if match:
+	ser_num = match.group(1)
 
+match = re.search(r"^Configuration register is (.*)", sh_ver, flags=re.M)
+if match:
+	config_reg = match.group(1)
+
+print("{:>20}: {:15}".format("OS Version", os_version))
+print("{:>20}: {:15}".format("Serial Number", ser_num))
+print("{:>20}: {:15}".format("Config Register", config_reg))
 
