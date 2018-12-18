@@ -1,27 +1,18 @@
 #!/usr/bin/env python
 '''
-Similar to lesson3, exercise4 write a function that normalizes a MAC address to
-the following format:
+Copy your solution from exercise3 to exercise4. Add an 'import pdb' and
+pdb.set_trace() statement outside of your function (i.e. where you have your
+function calls).
 
-01:23:45:67:89:AB
+Inside of pdb, experiment with: 
+· Listing your code.
+· Using 'next' and 'step' to walk through your code. Make sure you understand 
+  the difference between next and step.
+· Experiment with 'up' and 'down' to move up and down the code stack.
+· Use p <variable> to inspect a variable.
+· Set a breakpoint and run your code to the breakpoint.
+· Use '!command' to change a variable (for example !new_mac = [])
 
-This function should handle the lower-case to upper-case conversion.
-
-It should also handle converting from '0000.aaaa.bbbb' and from
-'00-00-aa-aa-bb-bb' formats.
-
-The function should have one parameter, the mac_address. It should return the
-normalized MAC address
-
-Single digit bytes should be zero-padded to two digits. In other words, this:
-
-a:b:c:d:e:f
-
-should be converted to:
-
-0A:0B:0C:0D:0E:0F
-
-Write several test cases for your function and verify it is working properly.
 '''
 import re
 
