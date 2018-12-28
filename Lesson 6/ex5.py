@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 '''
-Using Netmiko, establish a connection to a network device and print out the
-device's prompt.
+Use send_command() to send a show command down the SSH channel. Retrieve the
+results and print the results to the screen.
 '''
-
+import textfsm
 from netmiko import Netmiko
 from getpass import getpass
 
-def print_prompt(ip_addr, username):
+def print_cmd(ip_addr, username, cmd):
 	my_device = {
 		'host': ip_addr,
 		'username': username,
@@ -16,6 +16,7 @@ def print_prompt(ip_addr, username):
 	}
 
 	net_conn = Netmiko(**my_device)
-	print(net_conn.find_prompt())
+	output = net_conn.send_command(cmd, use_textfsm=True)
+	print(output)
 	net_conn.disconnect()
 
