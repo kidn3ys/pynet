@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 '''
-Use send_command() to send a show command down the SSH channel. Retrieve the
-results and print the results to the screen.
+Optional, use send_command() in conjunction with ntc-templates to execute a show
+command. Have TextFSM automatically convert this show command output to
+structured data.
 '''
 import textfsm
 from netmiko import Netmiko
