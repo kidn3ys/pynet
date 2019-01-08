@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 '''
-Use send_command() to send a show command down the SSH channel. Retrieve the
-results and print the results to the screen.
+Optional, connect to three networking devices one after the other. Use
+send_command() to execute a show command on each of these devices. Print this
+output to the screen.
 '''
 import sys
 import textfsm
